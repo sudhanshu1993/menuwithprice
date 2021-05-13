@@ -37,7 +37,7 @@
     
     <div class="brand">
     <a class="brand-logo" href="https://www.menuwithprice.com/menu/aandw/">
-        <img src="{{ asset('user/front_end/Images/brand_logo/aandw.png')}}" alt="A&W Restaurant menu"></a>
+        <img src="{{ asset('user/front_end/images/brand_logo/aandw.png')}}" alt="A&W Restaurant menu"></a>
     </div>
     
     

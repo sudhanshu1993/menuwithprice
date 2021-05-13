@@ -38,6 +38,7 @@ Route::view('/menu/arya-kabob-house/new-york','front_end/menu/arya-kabob-house/n
 Route::view('/menu/arya-kabob-house/new-york/flushing','front_end/menu/arya-kabob-house/new-york/flushing/index');
 Route::view('/menu/arya-kabob-house/new-york/flushing/658336','front_end/menu/arya-kabob-house/new-york/flushing/658336/index');
 
+Route::view('/menu/chick-fil-a','front_end/menu/chick-fil-a/alabama/birmingham/index');
 
 Route::view('/restaurant-near-me','front_end/restaurant-near-me/index');
 Route::view('/location/alabama','front_end/location/alabama/index');
@@ -55,3 +56,14 @@ Route::view('/nutrition/applebees/2949-add-american-cheese','front_end/nutrition
 Route::view('/menu/applebees/alabama','front_end/menu/applebees/alabama/index');
 Route::view('/menu/applebees/alabama/athens','front_end/menu/applebees/alabama/athens/index');
 Route::view('/menu/applebees/alabama/athens/1824','front_end/menu/applebees/alabama/athens/1824/index');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
