@@ -48,9 +48,11 @@ Route::view('/menu/chick-fil-a/alabama/birmingham/24333','front_end/menu/chick-f
 
 
 
-Route::view('/nutrition','front_end/nutrition/index');
-Route::view('/nutrition/applebees','front_end/nutrition/applebees/index');
-Route::view('/nutrition/applebees','front_end/nutrition/applebees/index');
+//Route::view('/nutrition','front_end/nutrition/index');
+Route::get('/nutrition', [App\Http\Controllers\nutrition::class, 'index'])->name('nutrition');
+//Route::view('/nutrition/applebees','front_end/nutrition/applebees/index');
+Route::get('/nutrition/{id}', [App\Http\Controllers\nutrition::class, 'state'])->name('nutrition.state');
+//Route::view('/nutrition/applebees','front_end/nutrition/applebees/index');
 Route::view('/nutrition/applebees/2949-add-american-cheese','front_end/nutrition/applebees/2949-add-american-cheese/index');
 
 Route::view('/menu/applebees/alabama','front_end/menu/applebees/alabama/index');
