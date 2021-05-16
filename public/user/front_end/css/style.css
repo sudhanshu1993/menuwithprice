@@ -511,7 +511,7 @@ input {
 .content {
 	margin: 0 auto;
 	margin-top: 10px;
-	width: 1013px;
+	width: 100%;
 	padding: 0 20px 15px;
 	box-sizing: border-box;
 	overflow: hidden;
@@ -521,7 +521,7 @@ input {
 
 .main {
 	display: inline-block;
-	width: 728px;
+	width: 100%;
 	font-size: 0
 }
 
