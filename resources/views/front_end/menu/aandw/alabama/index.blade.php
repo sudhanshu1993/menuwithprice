@@ -5,23 +5,20 @@
     <div class="main">
     
     <div class="bread-crumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
-    <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-    <a itemprop="item" href="https://www.menuwithprice.com/"><i itemprop="name">Menu With Price</i></a>
-    <meta itemprop="position" content="1">
-    </span>
-    <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-    <a href="https://www.menuwithprice.com/menu-and-price/" itemprop="item"><i itemprop="name">Menu</i></a>
-    <meta itemprop="position" content="2">
-    </span><span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-    <a href="https://www.menuwithprice.com/menu/aandw/" itemprop="item"><i itemprop="name">A&W Restaurant Prices</i></a>
-    <meta itemprop="position" content="3">
-    </span><span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-    <a href="https://www.menuwithprice.com/menu/aandw/alabama/" itemprop="item"><i itemprop="name">Alabama</i></a>
-    <meta itemprop="position" content="4">
-    </span> </div>
+    @foreach ($city as $key => $value)
+                <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a itemprop="item" href="{{
+                    Str::after($key,'https://www.menuwithprice.com') }}"><i itemprop="name">{{$value}}</i></a>
+                <meta itemprop="position" content="{{$loop->iteration}}">
+            </span>
+           
+                @endforeach
+    
+    </div>
     
     <div>
-    <h1 style="color:blue;">A&W Restaurant Prices and Locations in Alabama</h1>
+    <h1 style="color:blue;">
+     Restaurant Prices and Locations in Alabama</h1>
     </div>
     <div class="ads ads-top"><div>
     <style type="text/css">
@@ -37,9 +34,18 @@
     </div>
     
     <div class="state">
-    <h2 style="color:blue;">Select Your City in Alabama For A&W Restaurant</h2>
-    <ul class=" menu-list category-menu" >
-    <li><a href="birmingham/" style="border:1px solid blue;text-align: center;font-size:18px;font-family:Arial, Helvetica, sans-serif;">Birmingham</a></li><li><a href="https://www.menuwithprice.com/menu/aandw/alabama/haleyville/" style="border:1px solid blue;text-align: center;font-size:18px;font-family:Arial, Helvetica, sans-serif;">Haleyville</a></li><li><a href="https://www.menuwithprice.com/menu/aandw/alabama/huntsville/" style="border:1px solid blue;text-align: center;font-size:18px;font-family:Arial, Helvetica, sans-serif;">Huntsville</a></li><li><a href="https://www.menuwithprice.com/menu/aandw/alabama/montgomery/" style="border:1px solid blue;text-align: center;font-size:18px;font-family:Arial, Helvetica, sans-serif;">Montgomery</a></li><li><a href="https://www.menuwithprice.com/menu/aandw/alabama/prattville/" style="border:1px solid blue;text-align: center;font-size:18px;font-family:Arial, Helvetica, sans-serif;">Prattville</a></li> </ul>
+    <h2 style="color:blue;">Select Your City in Alabama For 
+    @foreach($city as $key => $value)
+	{{$value}}
+    @endforeach
+    </h2>
+    <ul class="menu-list category-menu">
+	@foreach($data as $key => $value)
+	<li><a href="{{
+		Str::after($key,'https://www.menuwithprice.com') }}" style="border:1px solid blue;text-align: center;font-size:18px;font-family:Arial, Helvetica, sans-serif;">{{ $value }}</a></li>
+	@endforeach
+    </ul>
+
     </div>
     
     <div class="ads"><div style="text-align:center;">

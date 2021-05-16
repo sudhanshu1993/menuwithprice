@@ -5,25 +5,22 @@
     <div class="main">
     
     <div class="bread-crumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
-    <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-    <a itemprop="item" href="https://www.menuwithprice.com/"><i itemprop="name">Menu With Price</i></a>
-    <meta itemprop="position" content="1">
-    </span>
-    <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-    <a href="https://www.menuwithprice.com/menu-and-price/" itemprop="item"><i itemprop="name">Menu</i></a>
-    <meta itemprop="position" content="2">
-    </span><span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-    <a href="https://www.menuwithprice.com/menu/aandw/" itemprop="item"><i itemprop="name">A&W Restaurant Prices</i></a>
-    <meta itemprop="position" content="3">
-    </span><span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-    <a href="https://www.menuwithprice.com/menu/aandw/alabama/" itemprop="item"><i itemprop="name">Alabama</i></a>
-    <meta itemprop="position" content="4">
-    </span><span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-    <a href="https://www.menuwithprice.com/menu/aandw/alabama/birmingham/" itemprop="item"><i itemprop="name">Birmingham</i></a>
-    <meta itemprop="position" content="5">
-    </span> </div>
+    @foreach ($city as $key => $value)
+                <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a itemprop="item" href="{{
+                    Str::after($key,'https://www.menuwithprice.com') }}"><i itemprop="name">{{$value}}</i></a>
+                <meta itemprop="position" content="{{$loop->iteration}}">
+            </span>
+           
+                @endforeach
     
-    <h1 style="color:blue;">A&W Restaurant Prices and Locations in Birmingham, AL</h1>
+    
+    </div>
+    
+    <h1 style="color:blue;">@foreach($city as $key => $value)
+	{{$value}}
+    @endforeach
+     Restaurant Prices and Locations in Birmingham, AL</h1>
     <div class="ads ads-top"><div>
     <style type="text/css">
     .mwp_ads_1 { width: 100%; height: 252px; }
@@ -39,16 +36,10 @@
     
     <div class="brand-in-city">
     <table class="stores-list">
-    <tbody>
-    <tr>
-    <td>
-    <a href="310558/">A&W Restaurant - <span>1674 Gadsen Hwy</span></a>
-    <div class="store-addr">
-    <span>Birmingham</span>, <span>Alabama</span>
-    <span class="stores-phone">(205) 661-3381</span>
-    </div>
-    </td> </tr>
-    </tbody>
+    @foreach ($datam1 as $key => $value)
+                                {!! str_replace('https://www.menuwithprice.com', ' ', $value) !!}
+                            @endforeach
+
     </table>
     </div>
     
@@ -68,12 +59,14 @@
     </div>
     
     <div class="brand brand-center">
-    <h2 style="color:blue;">Looking for a A&W Restaurant near you?</h2>
-    <p class="brand-info">A&W Restaurant is a fast-food restaurant chain which obtained opening franchises in California.It became famous in the United States for its 'frosty mugs' and is distinguished by its draft root beer and root beer floats. Besides, the typical fast-food menu of hamburgers, French fries, sweets and hot dogs can all be found there. Root beer is an optimal option for drink lovers, for it's caffeine-free and made with real cane sugar and with a proprietary blend of herbs, bark, spices and berries.</p>
-    <div class="brand-links">
-    <a href="https://www.menuwithprice.com/menu/aandw/">A&W Restaurant Menu</a>
-    <a href="https://www.menuwithprice.com/nutrition/aandw/">Nutrition Facts</a> </div>
-    </div>
+    <h2 style="color:blue;">Looking for a @foreach($city as $key => $value)
+    @if($loop->iteration=='3')
+	{{  Str::remove('Prices', $value)}}
+    @endif
+	@endforeach Restaurant near you?</h2>
+    <p class="brand-info">@foreach($datam as $key => $value)
+	{{$value}}
+    @endforeach</p>
     
     <div class="ads ads-bottom"><div>
     <style type="text/css">
@@ -90,7 +83,7 @@
     </div>
     </div>
     
-    
+    </div>
     </div>
     </div>
 @endsection

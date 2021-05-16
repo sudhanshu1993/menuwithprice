@@ -47,7 +47,11 @@
     <span class="more-less"></span>
     </label>
     <div class="choose-list choose-state">
-    <a href="new-york/">NY</a> </div>
+    @foreach($data as $key => $value)
+	<a href="{{
+		Str::after($key,'https://www.menuwithprice.com') }}">{{ $value }}</a>
+	@endforeach
+    </div>
     </div>
     
     <div class="ads"><div>
