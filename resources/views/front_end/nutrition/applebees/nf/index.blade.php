@@ -103,11 +103,31 @@
 
 
 			<div class="store_facts">
-				@foreach ($data as $key => $value)
-                                {!! $value !!}
-                            @endforeach
-			</div>
-		
+                <div class="nutrition">
+                        @foreach ($data as $key => $value)
+                            {!! $value !!}
+                        @endforeach
+                </div>
+                <div class="store_calories">
+                    <div class="source">
+                        <div class="source_tit">Source of Calories</div>
+                        <div id="piechart" style="width: 100%; height: 314px;margin-top:8%">
+                        </div>
+                        <div class="nutition">* Powered by <img src="{{asset('user/front_end/images/nutritionix_logo_250px.png')}}"
+                                alt="source of calories"></div>
+                    </div>
+                </div>
+            </div>
+			
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                    <script type=" text/javascript">
+                    </script>
+                    <script>
+                        @foreach ($charts as $key => $value)
+                            {!! $value !!}
+                        @endforeach
+
+                    </script>
 
 
             <div class="ads ads-bottom">

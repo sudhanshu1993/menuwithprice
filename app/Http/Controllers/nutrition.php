@@ -13,6 +13,7 @@ class nutrition extends Controller
     private $state = array();
     private $menu = array();
     private $nutri = array();
+    private $chart =array();
     public function index()
     {
         $client = new Client();
@@ -87,12 +88,16 @@ class nutrition extends Controller
        
         $url = 'https://www.menuwithprice.com/nutrition/'.$id.'/'.$id1;
         $page = $client->request('GET', $url);
-        $page->filter('.store_facts')->each(function ($item) {
+        $page->filter('.nutrition')->each(function ($item) {
             
             //$this->menu[$item->attr('href')] = $item->filter('a')->text();
             $this->results[$item->html()]=$item->html();
              });
              $data = $this->results;
+             $page->filter('script')->eq(8)->each(function ($item) {
+                $this->chart[$item->html()]=$item->html();
+                 });
+             $charts = $this->chart;
 
              $page->filter('.menu-list')->filter('li > a')->each(function ($item) {
                 $this->menu[$item->attr('href')] = $item->filter('a')->text();
@@ -106,7 +111,7 @@ class nutrition extends Controller
                     $this->nutri[$item->html()]=$item->html();
                      });
                      $nu = $this->nutri;
-        return view('front_end/nutrition/applebees/nf/index',compact('data','datam','id','b','nu'));
+        return view('front_end/nutrition/applebees/nf/index',compact('data','datam','id','b','nu','charts'));
        
         //dd($data);
 

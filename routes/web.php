@@ -22,6 +22,13 @@ Route::view('/about','front_end/about');
 Route::view('/contact','front_end/contact');
 Route::view('/privacy','front_end/privacy');
 Route::view('/term','front_end/term');
+Route::view('/pizza-near-me','front_end/pizza-near-me');
+Route::view('/mexican-near-me','front_end/mexican-near-me');
+Route::view('/donuts-near-me','front_end/donuts-near-me');
+Route::view('/seafood-near-me','front_end/seafood-near-me');
+Route::view('/burgers-near-me','front_end/burgers-near-me');
+
+Route::view('/brunch-near-me','front_end/brunch-near-me');
 
 Route::get('/menu-and-price', [App\Http\Controllers\MenuPriceController::class, 'menuprices'])->name('menuprices');
 Route::get('/menu-and-price/{id}', [App\Http\Controllers\MenuPriceController::class, 'menua'])->name('menuprices');

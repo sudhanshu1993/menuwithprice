@@ -75,7 +75,7 @@
 <div class="menu-price food-cl-list">
     <ul class="h-hours">
         <li>
-            <a href="/menu/dunkin-donuts/">
+            <a href="/donuts-near-me">
                 <span>
                     <img src="{{ asset('user/front_end/images/food_near_me/donuts-near-me.png')}}" alt="Donuts near me">
                 </span>
@@ -85,7 +85,7 @@
             </a>
         </li>
         <li>
-            <a href="/menu/waffle-house/">
+            <a href="/brunch-near-me">
                 <span>
                     <img src="{{ asset('user/front_end/images/food_near_me/brunch-near-me.png')}}" alt="Brunch near me">
                 </span>
@@ -95,7 +95,7 @@
             </a>
         </li>
         <li>
-            <a href="menu/arbys/">
+            <a href="/burgers-near-me">
                 <span>
                     <img src="{{ asset('user/front_end/images/food_near_me/burgers-near-me.png')}}" alt="Burger near me">
                 </span>
@@ -105,7 +105,7 @@
             </a>
         </li>
         <li>
-            <a href="menu/little-caesars-pizza/">
+            <a href="/pizza-near-me">
                 <span>
                     <img src="{{ asset('user/front_end/images/food_near_me/pizza-near-me.png')}}" alt="Pizza near me">
                 </span>
@@ -115,7 +115,7 @@
             </a>
         </li>
         <li>
-            <a href="menu/long-john-silvers/">
+            <a href="/seafood-near-me">
                 <span>
                     <img src="{{ asset('user/front_end/images/food_near_me/seafood-near-me.png')}}" alt="Seafood near me">
                 </span>
@@ -125,7 +125,7 @@
             </a>
         </li>
         <li>
-            <a href="/menu/chipotle-mexican-grill/">
+            <a href="/mexican-near-me">
                 <span>
                     <img src="{{ asset('user/front_end/images/food_near_me/mexican-near-me.png')}}" alt="Mexican near me">
                 </span>
