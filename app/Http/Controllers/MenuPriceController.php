@@ -16,20 +16,24 @@ class MenuPriceController extends Controller
    private $listprice= array();
    private $title = array();
    public function menuprices()
-    {
-        $client = new Client();
-        
-        $url = 'https://www.menuwithprice.com/menu-and-price/';
-        $page = $client->request('GET', $url);
+   {
+       $client = new Client();
+       
+       $url = 'https://www.menuwithprice.com/menu-and-price/';
+       $page = $client->request('GET', $url);
 
-    
-        $page->filter('.menu-list')->filter('li > a')->each(function ($item) {
-            $this->results[$item->attr('href')] = $item->filter('a')->text();
-        });
-        $data = $this->results;
-        return view('front_end.menu-and-price.index', compact('data'));
-        
-    }
+   
+       $page->filter('.menu-list')->filter('li > a')->each(function ($item) {
+           $this->results[$item->attr('href')] = $item->filter('a')->text();
+       });
+       $data = $this->results;
+       $page->filter('.pageGo')->each(function ($item) {
+           $this->menu[$item->html()]=$item->html();
+            });
+            $pages=$this->menu;
+       return view('front_end.menu-and-price.index', compact('data','pages'));
+       
+   }
     public function menua($id)
     {
         $client = new Client();
@@ -41,8 +45,33 @@ class MenuPriceController extends Controller
         $page->filter('.menu-list')->filter('li > a')->each(function ($item) {
             $this->results[$item->attr('href')] = $item->filter('a')->text();
         });
+        $page->filter('.pageGo')->each(function ($item) {
+            $this->menu[$item->html()]=$item->html();
+             });
+             $pages=$this->menu;
         $data = $this->results;
-        return view('front_end.menu-and-price.index', compact('data'));
+       return view('front_end.menu-and-price.index', compact('data','pages'));
+       // dd($pages);
+    }
+    public function menuap($id,$id1,$id2)
+    {
+        $client = new Client();
+        
+        $url = 'https://www.menuwithprice.com/menu-and-price/'.$id.'/'.$id1.'/'.$id2;
+        $page = $client->request('GET', $url);
+
+    
+        $page->filter('.menu-list')->filter('li > a')->each(function ($item) {
+            $this->results[$item->attr('href')] = $item->filter('a')->text();
+        });
+        $data = $this->results;
+        $page->filter('.pageGo')->each(function ($item) {
+            $this->menu[$item->html()]=$item->html();
+             });
+             $pages=$this->menu;
+        $data = $this->results;
+        return view('front_end.menu-and-price.index', compact('data','pages'));
+        
         
     }
     public function menupricescities($id)
@@ -66,7 +95,7 @@ class MenuPriceController extends Controller
              });
 
              $datam = $this->menu;
-        return view('front_end.menu.aandw.index', compact('data','city','datam'));
+        return view('front_end.menu.aandw.index', compact('data','id','city','datam'));
         //dd($data);
     
     }

@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::view('/','front_end/index');
 Route::view('/about','front_end/about');
 Route::view('/contact','front_end/contact');
@@ -24,6 +25,7 @@ Route::view('/term','front_end/term');
 
 Route::get('/menu-and-price', [App\Http\Controllers\MenuPriceController::class, 'menuprices'])->name('menuprices');
 Route::get('/menu-and-price/{id}', [App\Http\Controllers\MenuPriceController::class, 'menua'])->name('menuprices');
+Route::get('/menu-and-price/{id}/{id1}/{id2}', [App\Http\Controllers\MenuPriceController::class, 'menuap'])->name('menupricess');
 
 Route::get('/menu/{id}', [App\Http\Controllers\MenuPriceController::class, 'menupricescities'])->name('menupricescities');
 Route::get('/menu/{id}/{id1}', [App\Http\Controllers\MenuPriceController::class, 'menupricessecondlast'])->name('menupricessecondlast');

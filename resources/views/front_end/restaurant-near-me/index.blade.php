@@ -5,11 +5,11 @@
 
     <div class="bread-crumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList">
     <span itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-    <a itemprop="item" href="../index.htm"><i itemprop="name">Menu With Price</i></a>
+    <a itemprop="item" href="/"><i itemprop="name">Menu With Price</i></a>
     <meta itemprop="position" content="1">
     </span>
     <span itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-    <a href="index.htm" itemprop="item"><i itemprop="name">Locator</i></a>
+    <a href="/restaurant-near-me" itemprop="item"><i itemprop="name">Locator</i></a>
     <meta itemprop="position" content="2">
     </span> </div>
     
@@ -51,7 +51,13 @@
     </div>
     
     <h2 style="color: blue;">Cities Guide</h2>
-    
+    <ul class="menu-list category-menu">
+	@foreach($data1 as $key => $value)
+	<li><a href="{{
+		Str::after($key,'https://www.menuwithprice.com') }}" style="border:1px solid blue;text-align: center;font-size:18px;font-family:Arial, Helvetica, sans-serif;">{{ $value }}</a></li>
+	@endforeach
+    </ul>
+
     <div class="ads ads-bottom"><div>
     <style type="text/css">
     .mwp_ads_3 { width: 100%; height: 250px; }

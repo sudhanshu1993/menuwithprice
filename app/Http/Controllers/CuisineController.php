@@ -31,7 +31,7 @@ class CuisineController extends Controller
         $client = new Client();
         $url = 'https://www.menuwithprice.com/cuisine/'.$id;
         $page = $client->request('GET', $url);
-        $page->filter('.bread-crumbs > span')->each(function ($item) {
+        $page->filter('.bread-crumbs > span > a')->each(function ($item) {
             $this->citys[$item->attr('href')] = $item->filter('a')->text();
             });
             $city = $this->citys;

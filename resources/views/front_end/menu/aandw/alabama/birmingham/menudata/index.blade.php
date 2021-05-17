@@ -49,7 +49,7 @@
     </div>
     
     
-    <div class="hours">
+    <div class="hours" >
     @foreach ($datam1 as $key => $value)
                                 {!! str_replace('https://www.menuwithprice.com', ' ', $value) !!}
                             @endforeach

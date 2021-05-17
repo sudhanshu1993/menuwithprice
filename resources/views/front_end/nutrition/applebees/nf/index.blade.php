@@ -54,15 +54,15 @@
 					src="{{ asset('https://cdn.menuwithprice.com/Images/brand_logo/' . $id . '.png') }}"
 					alt="{{$id}}"></a>
                 <div class="nutition_list">
-                    <label>@foreach ($b as $key => $value)
+                    <label>@foreach ($nu as $key => $value)
 
-                        @if($loop->last)
+                     
                         
-                       {{$value}}
+                       {!!$value!!}
                         
-                        @endif
+                      
                           
-                        @endforeach<span>: 150 Calories</span></label>
+                        @endforeach </label>
                 </div>
             </div>
 

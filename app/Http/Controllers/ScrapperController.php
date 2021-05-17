@@ -9,6 +9,7 @@ use Goutte\Client;
 class ScrapperController extends Controller
 {
     private $results1 = array();
+    private $results12 = array();
     private $results = array();
     private $citys= array();
     private $cities= array();
@@ -19,11 +20,17 @@ class ScrapperController extends Controller
         $page = $client->request('GET', $url);
 
     
-        $page->filter('.menu-list')->filter('li > a')->each(function ($item) {
+        $page->filter('.menu-list')->eq(0)->filter('li > a')->each(function ($item) {
             $this->results[$item->attr('href')] = $item->filter('a')->text();
         });
         $data = $this->results;
-        return view('front_end.restaurant-near-me.index', compact('data'));
+        $page->filter('.menu-list')->eq(1)->filter('li > a')->each(function ($item) {
+            $this->results12[$item->attr('href')] = $item->filter('a')->text();
+        });
+        $data1 = $this->results12;
+        
+        return view('front_end.restaurant-near-me.index', compact('data','data1'));
+        //dd($data);
     }
     public function location($id)
     {
@@ -60,7 +67,7 @@ class ScrapperController extends Controller
        
          $url = 'https://www.menuwithprice.com/location/'.$id.'/'.$id1;
          $page = $client->request('GET', $url);
-         $page->filter('.bread-crumbs > span')->each(function ($item) {
+         $page->filter('.bread-crumbs > span > a')->each(function ($item) {
             $this->cities[$item->attr('href')] = $item->filter('a')->text();
             });
             $cityi = $this->cities;

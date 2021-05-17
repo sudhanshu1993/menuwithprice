@@ -5,23 +5,18 @@
     <div class="main">
     
     <div class="bread-crumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
-    <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-    <a itemprop="item" href="https://www.menuwithprice.com/"><i itemprop="name">Menu With Price</i></a>
-    <meta itemprop="position" content="1">
-    </span>
-    <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-    <a href="https://www.menuwithprice.com/restaurant-near-me/" itemprop="item"><i itemprop="name">Locator</i></a>
-    <meta itemprop="position" content="2">
-    </span><span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-    <a href="https://www.menuwithprice.com/location/alabama/" itemprop="item"><i itemprop="name">@foreach($cityi as $key => $value)
-	{{$value}}
-	@endforeach
-    </i></a>
-    <meta itemprop="position" content="3">
-    </span><span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-    <a href="https://www.menuwithprice.com/location/alabama/birmingham/" itemprop="item"><i itemprop="name">Birmingham</i></a>
-    <meta itemprop="position" content="4">
-    </span> </div>
+    @foreach ($cityi as $key => $value)
+                <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a itemprop="item" href="{{
+                    Str::after($key,'https://www.menuwithprice.com') }}"><i itemprop="name">{{$value}}</i></a>
+                <meta itemprop="position" content="{{$loop->iteration}}">
+            </span>
+           
+                @endforeach
+    
+        
+
+</div>
     
     <h1 style="color:blue;">Best Restaurants in Birmingham,
     @foreach($cityi as $key => $value)

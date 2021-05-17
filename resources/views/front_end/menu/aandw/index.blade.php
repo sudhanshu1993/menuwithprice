@@ -38,8 +38,10 @@
     </div>
     
     <div class="brand">
-    <a class="brand-logo" href="https://www.menuwithprice.com/menu/aandw/">
-        <img src="{{ asset('user/front_end/images/brand_logo/aandw.png')}}" alt="A&W Restaurant menu"></a>
+    <a class="brand-logo" href="#"><img
+                        src="{{ asset('https://cdn.menuwithprice.com/Images/brand_logo/' . $id . '.png') }}"
+                        alt="{{$id}}"></a>
+    
     </div>
     
     
@@ -85,8 +87,8 @@
 	@endforeach Menu with Price</h2>
     </div>
     </div>
-    <div class="price md-price">
-    <table class="prc-table">
+    <div class="price md-price" >
+    <table class="prc-table" >
 
     @foreach ($datam as $key => $value)
                                 {!! str_replace('https://www.menuwithprice.com', ' ', $value) !!}

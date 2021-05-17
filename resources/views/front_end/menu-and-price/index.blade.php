@@ -37,6 +37,11 @@
 		Str::after($key,'https://www.menuwithprice.com') }}" style="border:1px solid blue;text-align: center;font-size:18px;font-family:Arial, Helvetica, sans-serif;">{{ $value }}</a></li>
 	@endforeach
     </ul>
+    <div class="pageGo">
+                @foreach ($pages as $key => $value)
+                                {!!  $value !!}
+                            @endforeach
+            </div>
 <div class="ads ads-center">
     <div style="text-align:center;">
         <style type="text/css">

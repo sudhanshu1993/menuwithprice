@@ -6,11 +6,11 @@
     
     <div class="bread-crumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList">
     <span itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-    <a itemprop="item" href="../index.htm"><i itemprop="name">Menu With Price</i></a>
+    <a itemprop="item" href="/"><i itemprop="name">Menu With Price</i></a>
     <meta itemprop="position" content="1">
     </span>
     <span itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-    <a href="index.htm" itemprop="item"><i itemprop="name">Cuisine</i></a>
+    <a href="/cuisine" itemprop="item"><i itemprop="name">Cuisine</i></a>
     <meta itemprop="position" content="2">
     </span> </div>
     

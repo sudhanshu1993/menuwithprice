@@ -9,7 +9,7 @@
 <meta itemprop="position" content="1">
 </span>
 <span itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-<a href="index.htm" itemprop="item"><i itemprop="name">Nutrition</i></a>
+<a href="/nutrition" itemprop="item"><i itemprop="name">Nutrition</i></a>
 <meta itemprop="position" content="2">
 </span> </div>
 

@@ -12,6 +12,7 @@ class nutrition extends Controller
     private $results = array();
     private $state = array();
     private $menu = array();
+    private $nutri = array();
     public function index()
     {
         $client = new Client();
@@ -101,7 +102,11 @@ class nutrition extends Controller
                 $this->state[$item->attr('href')] = $item->filter('a')->text();
                 });
                 $b = $this->state;
-        return view('front_end/nutrition/applebees/nf/index',compact('data','datam','id','b'));
+                $page->filter('.nutition_list')->filter('label')->each(function ($item) {
+                    $this->nutri[$item->html()]=$item->html();
+                     });
+                     $nu = $this->nutri;
+        return view('front_end/nutrition/applebees/nf/index',compact('data','datam','id','b','nu'));
        
         //dd($data);
 

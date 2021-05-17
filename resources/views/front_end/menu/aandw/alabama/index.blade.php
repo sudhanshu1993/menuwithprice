@@ -18,7 +18,12 @@
     
     <div>
     <h1 style="color:blue;">
-     Restaurant Prices and Locations in Alabama</h1>
+    
+    @foreach($city as $key => $value)
+    @if($loop->iteration=='3')
+	{{  Str::remove('Prices', $value)}}
+    @endif
+	@endforeach Restaurant Prices and Locations in Alabama</h1>
     </div>
     <div class="ads ads-top"><div>
     <style type="text/css">
